@@ -161,9 +161,6 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
-      lucide-react:
-        specifier: ^0.536.0
-        version: 0.536.0(react@19.1.1)
       motion:
         specifier: ^12.23.12
         version: 12.23.14(@emotion/is-prop-valid@1.4.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -255,6 +252,9 @@ importers:
       esrun:
         specifier: ^0.0.1
         version: 0.0.1
+      lucide-react:
+        specifier: ^0.536.0
+        version: 0.536.0(react@19.1.1)
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
