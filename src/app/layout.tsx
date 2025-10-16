@@ -24,32 +24,6 @@ export const metadata: Metadata = {
   creator: 'OnlyFounders',
   publisher: 'OnlyFounders',
   robots: 'index, follow',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://onlyfounders.fun',
-    title:
-      'OnlyFounders: Launch Your Token. Build Your Empire. Founder Capital Markets.',
-    description:
-      'OnlyFounders is the viral, low-friction launchpad for first-time founders & degen traders. Tokenize your startup or personal brand, raise capital, and create your mini-economy. Fast, fair, funded.',
-    siteName: 'OnlyFounders',
-    images: [
-      {
-        url: '/onlyfoundersdotfun cat-Photoroom.png',
-        width: 1200,
-        height: 630,
-        alt: 'OnlyFounders logo - ICM launchpad for founders launching viral tokens',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title:
-      'OnlyFounders: Launch Your Token. Build Your Empire. Founder Capital Markets.',
-    description:
-      'OnlyFounders is the viral, low-friction launchpad for first-time founders & degen traders. Tokenize your startup or personal brand, raise capital, and create your mini-economy. Fast, fair, funded.',
-    images: ['/onlyfoundersdotfun cat-Photoroom.png'],
-  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
