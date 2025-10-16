@@ -122,9 +122,6 @@ importers:
       '@web3auth/modal-react-hooks':
         specifier: 9.7.0
         version: 9.7.0(@babel/runtime@7.28.4)(bufferutil@4.0.9)(react-dom@19.1.1(react@19.1.1))(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.13)(bufferutil@4.0.9)(react@19.1.1)(utf-8-validate@5.0.10))(react@19.1.1)(typescript@5.9.2)(utf-8-validate@5.0.10)
-      axios:
-        specifier: ^1.11.0
-        version: 1.12.2
       bn.js:
         specifier: ^5.2.2
         version: 5.2.2
@@ -243,6 +240,9 @@ importers:
       '@types/ws':
         specifier: ^8.5.10
         version: 8.18.1
+      axios:
+        specifier: ^1.11.0
+        version: 1.12.2
       eslint:
         specifier: ^9.32.0
         version: 9.35.0(jiti@2.5.1)

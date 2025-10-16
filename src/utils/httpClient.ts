@@ -55,9 +55,12 @@ export async function getCoinsByCreator(
   return response.data;
 }
 
-export async function getCoinByMint(mint: string): Promise<Coin | null> {
-  const response = await axios.get(`${BASE_URL}/coins/mint/${mint}`);
-  return response.data;
+export async function getCoinByMint(mint: string) {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const url = `${base}/api/proxy/coins/mint/${mint}`;
+  const res = await fetch(url, { next: { revalidate: 60 } });
+  if (!res.ok) throw new Error('Failed to fetch coin data');
+  return res.json();
 }
 
 export async function getCoinByPoolId(poolId: string): Promise<Coin | null> {
