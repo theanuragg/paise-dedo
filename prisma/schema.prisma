@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+model Token {
+  id          String   @id @default(uuid())
+  name        String
+  symbol      String
+  address     String   @unique
+  image       String?
+  x_acc       String?
+  telegram    String?
+  createdAt   DateTime @default(now())
+  creatorId   String
+  likes       Like[]
+  
+
+  @@map("tokens")
+  Pool Pool[]
+  creator XUser @relation(fields: [creatorId], references: [id])
+}
+
+model Pool {
+  id          String   @id @default(uuid())
+  tokenId     String
+  liquidity   Float
+  createdAt   DateTime @default(now())
+  token       Token    @relation(fields: [tokenId], references: [id])
+
+  @@map("pools")
+}
+
+model XUser {
+  id            String   @id @default(uuid())
+  xId           String   @unique  // X/Twitter user ID
+  username      String   @unique
+  isSmart       Boolean  @default(false)  // Determined based on criteria
+  accessToken   String?  // For API calls if needed
+  refreshToken  String?  // For token refresh
+  x_acc         String?
+  telegram      String?
+  connectedAt   DateTime @default(now())
+  likes         Like[]
+  tokens        Token[]
+
+  @@map("x_users")
+}
+
+model Like {
+  id        String   @id @default(uuid())
+  tokenId   String
+  xUserId   String
+  createdAt DateTime @default(now())
+  token     Token    @relation(fields: [tokenId], references: [id])
+  xUser     XUser    @relation(fields: [xUserId], references: [id])
+
+  @@unique([tokenId, xUserId])  // Prevent duplicate likes
+  @@map("likes")
+}
